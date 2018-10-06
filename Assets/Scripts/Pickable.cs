@@ -25,6 +25,9 @@ public class Pickable : MonoBehaviour
 			collision.GetComponent<Player>().Impact(type);
 
 			GetComponent<Collider2D>().enabled = false;
+
+			if(type == PickableType.Trauma)
+				Vanish();
 		}
 
 		if(collision.tag == "Weapon")

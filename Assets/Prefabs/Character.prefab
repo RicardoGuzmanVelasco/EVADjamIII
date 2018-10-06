@@ -245,7 +245,7 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1904357341987164}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -348,6 +348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb86f6a0e59ea8d4795fb57b10962f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hopeSlider: {fileID: 0}
+  traumaSlider: {fileID: 0}
 --- !u!114 &114936863774159956
 MonoBehaviour:
   m_ObjectHideFlags: 1

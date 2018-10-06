@@ -1,13 +1,18 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
 	private Collider2D netCollider, bottleCollider;
 	private Animator netAnimator;
 
+	public Score score;
+	public Slider hopeSlider, traumaSlider;
+
 	private void Awake()
 	{
+		score = new Score(hopeSlider, traumaSlider);
 		netAnimator = transform.Find("Weapons").GetComponent<Animator>();
 
 		netCollider = transform.Find("Weapons/Net").GetComponent<Collider2D>();
@@ -42,10 +47,10 @@ public class Player : MonoBehaviour
 		switch(pickableType)
 		{
 			case PickableType.Hope:
-				//Hope oversteps you.
+				//No change in score. Hope oversteps you.
 				break;
 			case PickableType.Trauma:
-				Debug.Log("Traume hurts you!");
+				score.Increase(-1);
 				break;
 			default:
 				Debug.LogError("Unknown type.");
@@ -56,8 +61,32 @@ public class Player : MonoBehaviour
 	internal void Impact(PickableType pickableType, PickableType weaponType)
 	{
 		if(pickableType == PickableType.Hope && weaponType == PickableType.Hope)
-			Debug.Log("Hope haunted by net!");
+			HuntHope();
 		if(pickableType == PickableType.Trauma && weaponType == PickableType.Trauma)
-			Debug.Log("Trauma destroyed by bottle!");
+			DestroyTrauma();
+		if(pickableType == PickableType.Hope && weaponType == PickableType.Trauma)
+			DestroyHope();
+		if(pickableType == PickableType.Trauma && weaponType == PickableType.Hope)
+			HuntTrauma();
+	}
+
+	private void HuntTrauma()
+	{
+		score.Increase(-1);
+	}
+
+	private void DestroyHope()
+	{
+		score.Increase(-1);
+	}
+
+	private void DestroyTrauma()
+	{
+		score.Increase(+1);
+	}
+
+	private void HuntHope()
+	{
+		score.Increase(+1);
 	}
 }
