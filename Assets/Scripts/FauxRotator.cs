@@ -5,7 +5,7 @@ public class FauxRotator : MonoBehaviour
 	public Transform planetFloor;
 	public GameObject character;
 	private Animator characterAnimator;
-	public float speed = 5;
+	public float speed = 10f;
 
 	private int lastMovementInput = 0;
 

@@ -11,6 +11,10 @@ public class Pickable : MonoBehaviour
 	{
 		if(antigenerated)
 			speed *= -1;
+
+		//Hopes goes to you until they collides with HopesActivator.
+		if(type == PickableType.Hope)
+			speed *= -1;
 	}
 
 	private void Update()
@@ -20,6 +24,12 @@ public class Pickable : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
+		if(type == PickableType.Hope && collision.tag == "Respawn")
+		{
+			speed *= -3;
+			return;
+		}
+
 		if(collision.tag == "Player")
 		{
 			collision.GetComponent<Player>().Impact(type);
@@ -34,10 +44,7 @@ public class Pickable : MonoBehaviour
 		{
 			Weapon weapon = collision.GetComponent<Weapon>();
 			weapon.Hunt(type);
-			if(weapon.type == PickableType.Trauma && type == PickableType.Trauma)
-			{
-				Vanish();
-			}
+			Vanish();
 		}
 	}
 
