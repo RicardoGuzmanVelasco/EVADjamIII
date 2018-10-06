@@ -19,7 +19,17 @@ public class Pickable : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		Debug.Log(collision.tag);
+		if(collision.tag == "Player")
+		{
+			collision.GetComponent<Player>().Impact(type);
+
+			GetComponent<Collider2D>().enabled = false;
+		}
+
+		if(collision.tag == "Weapon")
+		{
+			collision.GetComponent<Weapon>().Hunt(type);
+		}
 	}
 
 
