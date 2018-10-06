@@ -10,7 +10,6 @@ public class Weapon : MonoBehaviour
 		player = GetComponentInParent<Player>();
 	}
 
-
 	public void Hunt(PickableType pickableType)
 	{
 		player.Impact(pickableType, type);

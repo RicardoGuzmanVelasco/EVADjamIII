@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Pickable : MonoBehaviour
 {
@@ -28,9 +29,17 @@ public class Pickable : MonoBehaviour
 
 		if(collision.tag == "Weapon")
 		{
-			collision.GetComponent<Weapon>().Hunt(type);
+			Weapon weapon = collision.GetComponent<Weapon>();
+			weapon.Hunt(type);
+			if(weapon.type == PickableType.Trauma && type == PickableType.Trauma)
+			{
+				Vanish();
+			}
 		}
 	}
 
-
+	private void Vanish()
+	{
+		Destroy(gameObject);
+	}
 }
