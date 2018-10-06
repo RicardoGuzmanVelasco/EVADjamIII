@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3452340597
+    locked: 0
+  - name: Background parallax
+    uniqueID: 3895122809
+    locked: 0
+  - name: Floor
+    uniqueID: 964701951
+    locked: 0
+  - name: Floor ornaments
+    uniqueID: 2829007485
+    locked: 0
+  - name: Pickables
+    uniqueID: 943693621
+    locked: 0
+  - name: Character
+    uniqueID: 910746621
+    locked: 0
