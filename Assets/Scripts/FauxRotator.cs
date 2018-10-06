@@ -2,7 +2,7 @@
 
 public class FauxRotator : MonoBehaviour
 {
-	public Transform planet;
+	public Transform planetFloor;
 	public GameObject character;
 	private Animator characterAnimator;
 	public float speed = 5;
@@ -18,7 +18,7 @@ public class FauxRotator : MonoBehaviour
 	{
 		int currentInput = Input.GetAxis("Movement") > 0 ? 1 : Input.GetAxis("Movement") < 0 ? -1 : 0;
 
-		planet.RotateAround(Vector3.zero, Vector3.forward, Time.deltaTime * speed * currentInput);
+		planetFloor.RotateAround(Vector3.zero, Vector3.forward, Time.deltaTime * speed * currentInput);
 
 
 		if(currentInput == lastMovementInput)
