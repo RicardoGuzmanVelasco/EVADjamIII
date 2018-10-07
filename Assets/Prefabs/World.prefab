@@ -429,10 +429,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: {fileID: 4174063620191862}
+  msgs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   mainPickable: 1
   hopePrefab: {fileID: 1901653405556808, guid: 6ca4fd73cc751da4bbfe08facc54f5ff, type: 2}
   traumaPrefab: {fileID: 1325967942936114, guid: 66b9db0d28c4bcc40aa4b3f468fc9548,
     type: 2}
+  showMsgs: 0
 --- !u!114 &114576764609935678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -445,10 +461,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: {fileID: 4174063620191862}
+  msgs: []
   mainPickable: -1
   hopePrefab: {fileID: 1901653405556808, guid: 6ca4fd73cc751da4bbfe08facc54f5ff, type: 2}
   traumaPrefab: {fileID: 1325967942936114, guid: 66b9db0d28c4bcc40aa4b3f468fc9548,
     type: 2}
+  showMsgs: 0
 --- !u!212 &212114109620636298
 SpriteRenderer:
   m_ObjectHideFlags: 1
