@@ -122,7 +122,7 @@ public class PickableGenerator : MonoBehaviour
 		{
 			if(mainOn)
 			{
-				GameObject pickable = Instantiate(mainPrefab, transform.position, Quaternion.identity, floor);
+				Instantiate(mainPrefab, transform.position, Quaternion.identity, floor);
 				coolDown = Mathf.Max(coolDown - 0.1f, 0.5f);
 			}
 			if(antiOn)

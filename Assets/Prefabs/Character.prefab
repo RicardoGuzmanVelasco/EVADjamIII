@@ -1247,7 +1247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 95173669885572872}
   destroyTraumaClip: {fileID: 8300000, guid: 284a5fe998a01e24f94ac2805023e98b, type: 3}
-  huntTraumaClip: {fileID: 0}
+  huntTraumaClip: {fileID: 8300000, guid: d48f7a2f2be136b4db3bbfe6cab6db92, type: 3}
   destroyHopeClip: {fileID: 0}
   huntHopeClip: {fileID: 8300000, guid: 5a578c16c5a6d77409689d41f7b1c5a3, type: 3}
   impactTraumaClip: {fileID: 8300000, guid: b735c793c2d5ec94e9b801cb766a86d3, type: 3}

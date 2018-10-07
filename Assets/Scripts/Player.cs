@@ -81,6 +81,7 @@ public class Player : MonoBehaviour
 
 	private void HuntTrauma()
 	{
+		effectsSource.PlayOneShot(huntTraumaClip);
 		animator.SetTrigger("Damaged");
 		score.Increase(-1);
 	}

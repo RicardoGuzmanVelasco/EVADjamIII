@@ -17,15 +17,9 @@ public class FauxRotator : MonoBehaviour
 
 	private void Update()
 	{
-
 		int currentInput = Input.GetAxis("Horizontal") > 0 ? 1 : Input.GetAxis("Horizontal") < 0 ? -1 : 0;
-
+		characterAnimator.SetBool("Front", currentInput <= 0);
 		planetFloor.RotateAround(Vector3.zero, Vector3.forward, Time.deltaTime * speed * currentInput);
-
-		if(Input.GetButtonDown("Horizontal"))
-			characterAnimator.SetBool("Front", currentInput <= 0);
-		if(Input.GetButtonUp("Horizontal"))
-			characterAnimator.SetBool("Front", currentInput <= 0);
 
 
 		if(currentInput == lastMovementInput)
@@ -49,10 +43,22 @@ public class FauxRotator : MonoBehaviour
 
 		lastMovementInput = currentInput;
 
+
+		//Steps region. Working fully.
+		if(!characterAnimator.GetBool("Front"))
+			footSteps.pitch *= 0.85f;
+		else
+			footSteps.pitch = 1f;
+
 		if(!characterAnimator.GetBool("Stopped"))
 			footSteps.Play();
 		else
 			footSteps.Stop();
+
+		Debug.Log("Stopped: " + characterAnimator.GetBool("Stopped") + "\t" +
+			"Front: " + characterAnimator.GetBool("Front") + "\t" +
+			"Current input: " + currentInput + "\t"
+			);
 	}
 
 }
