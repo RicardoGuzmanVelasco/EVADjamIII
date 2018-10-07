@@ -12,6 +12,7 @@ public class ScoreTimer : MonoBehaviour
 	public GameObject winAnimation, loseAnimation;
 
 	public AudioClip win, lose;
+	public AudioSource endSound;
 
 	private void Start()
 	{
@@ -37,14 +38,15 @@ public class ScoreTimer : MonoBehaviour
 	private void ToEnd()
 	{
 		timerText.text = "";
+		Time.timeScale = 0;
 		int result = player.GetComponent<Score>().Balancement;
-		GetComponent<AudioSource>().clip = result >= 0 ? win : lose;
-		GetComponent<AudioSource>().Play();
+		endSound.PlayOneShot(result >= 0 ? win : lose);
 		if(result >= 0)
 			winAnimation.SetActive(true);
 		else
 			loseAnimation.SetActive(true);
-
-
+		winAnimation.transform.parent.gameObject.SetActive(true);
+		player.transform.GetComponent<Score>().Mute();
+		Destroy(this);
 	}
 }

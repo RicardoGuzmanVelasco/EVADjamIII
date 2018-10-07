@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1089900597112046
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +274,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1030049576079876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 901b1d6bfa39d824eaec454c0e6c80e4, type: 2}
   m_CullingMode: 0
@@ -350,8 +350,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Oh que bonito, \xA1Me van a dar arcadas!\nNo puedes mentirme, s\xE9 quien
-    eres... PAT\xC9TICO"
+  m_Text: "Oh qu\xE9 bonito, \xA1Me van a dar arcadas!\nNo puedes mentirme, s\xE9
+    quien eres... PAT\xC9TICO"
 --- !u!114 &114290414557237326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3882353, g: 0.3882353, b: 0.3882353, a: 1}
+  m_Color: {r: 0.9411765, g: 0.5254902, b: 0.003921569, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -682,7 +682,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xBFAcaso pretendes olvidarte de mi?...\r Nunca.\n\n\n"
+  m_Text: "\xBFAcaso pretendes olvidarte de m\xED?...\r Nunca.\n\n\n"
 --- !u!114 &114893697782024514
 MonoBehaviour:
   m_ObjectHideFlags: 1
