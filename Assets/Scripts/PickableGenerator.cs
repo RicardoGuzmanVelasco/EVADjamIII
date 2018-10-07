@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PickableGenerator : MonoBehaviour
@@ -8,10 +10,13 @@ public class PickableGenerator : MonoBehaviour
 	private float time;
 	private bool mainOn = false, antiOn = false;
 
+	public List<GameObject> msgs;
+
 	public PickableType mainPickable;
 	public GameObject hopePrefab, traumaPrefab;
 
 	private float coolDown = 5;
+	public bool showMsgs;
 
 	private void Start()
 	{
@@ -40,7 +45,9 @@ public class PickableGenerator : MonoBehaviour
 				default:
 					break;
 			}
-		else if(time > 20)
+		else if(time > 24)
+			HideNarrative();
+		else if(time > 22)
 			switch(mainPickable)
 			{
 				case PickableType.Hope:
@@ -54,12 +61,28 @@ public class PickableGenerator : MonoBehaviour
 				default:
 					break;
 			}
-		else if(time > 17)
+		else if(time > 21)
+			ShowNarrative(7);
+		else if(time > 20)
 			switch(mainPickable)
 			{
 				case PickableType.Hope:
 					mainOn = true;
 					antiOn = false;
+					break;
+				case PickableType.Trauma:
+					mainOn = true;
+					antiOn = false;
+					break;
+				default:
+					break;
+			}
+		else if(time > 18)
+			switch(mainPickable)
+			{
+				case PickableType.Hope:
+					mainOn = true;
+					antiOn = true;
 					break;
 				case PickableType.Trauma:
 					mainOn = true;
@@ -73,7 +96,7 @@ public class PickableGenerator : MonoBehaviour
 			{
 				case PickableType.Hope:
 					mainOn = true;
-					antiOn = true;
+					antiOn = false;
 					break;
 				case PickableType.Trauma:
 					mainOn = true;
@@ -82,21 +105,9 @@ public class PickableGenerator : MonoBehaviour
 				default:
 					break;
 			}
+		else if(time > 13)
+			HideNarrative();
 		else if(time > 10)
-			switch(mainPickable)
-			{
-				case PickableType.Hope:
-					mainOn = true;
-					antiOn = false;
-					break;
-				case PickableType.Trauma:
-					mainOn = true;
-					antiOn = false;
-					break;
-				default:
-					break;
-			}
-		else if(time > 5)
 			switch(mainPickable)
 			{
 				case PickableType.Hope:
@@ -110,7 +121,27 @@ public class PickableGenerator : MonoBehaviour
 				default:
 					break;
 			}
+		else if(time > 9.0)
+			ShowNarrative(5);
+		else if(time > 6)
+			HideNarrative();
+		else if(time > 3)
+			ShowNarrative(0);
 		#endregion
+	}
+
+	private void ShowNarrative(int v)
+	{
+		if(!showMsgs) return;
+		for(int i = 0; i < msgs.Count; i++)
+			msgs[i].SetActive(i==v);
+	}
+
+	private void HideNarrative()
+	{
+		if(!showMsgs) return;
+		for(int i = 0; i < msgs.Count; i++)
+			msgs[i].SetActive(false);
 	}
 
 	private IEnumerator SpawnPickable()

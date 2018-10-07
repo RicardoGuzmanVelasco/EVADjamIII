@@ -76,4 +76,10 @@ public class Score : MonoBehaviour
 				break;
 		}
 	}
+
+	public void Mute()
+	{
+		for(int i = 0; i < audioLayers.Count; i++)
+			audioLayers[i].mute = true;
+	}
 }
