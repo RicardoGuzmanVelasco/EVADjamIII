@@ -27,6 +27,7 @@ public class Pickable : MonoBehaviour
 	{
 		if(!ranAway && type == PickableType.Hope && collision.tag == "Respawn")
 		{
+			transform.localScale *= -1;
 			ranAway = true;
 			speed *= -3;
 			return;

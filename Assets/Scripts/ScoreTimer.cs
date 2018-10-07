@@ -9,6 +9,10 @@ public class ScoreTimer : MonoBehaviour
 	public Text timerText;
 	private float time;
 
+	public GameObject winAnimation, loseAnimation;
+
+	public AudioClip win, lose;
+
 	private void Start()
 	{
 		time = 0.0f;
@@ -32,6 +36,15 @@ public class ScoreTimer : MonoBehaviour
 
 	private void ToEnd()
 	{
-		Debug.Log(player.GetComponent<Score>().Balancement);
+		timerText.text = "";
+		int result = player.GetComponent<Score>().Balancement;
+		GetComponent<AudioSource>().clip = result >= 0 ? win : lose;
+		GetComponent<AudioSource>().Play();
+		if(result >= 0)
+			winAnimation.SetActive(true);
+		else
+			loseAnimation.SetActive(true);
+
+
 	}
 }

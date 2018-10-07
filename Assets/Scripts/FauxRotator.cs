@@ -54,11 +54,6 @@ public class FauxRotator : MonoBehaviour
 			footSteps.Play();
 		else
 			footSteps.Stop();
-
-		Debug.Log("Stopped: " + characterAnimator.GetBool("Stopped") + "\t" +
-			"Front: " + characterAnimator.GetBool("Front") + "\t" +
-			"Current input: " + currentInput + "\t"
-			);
 	}
 
 }

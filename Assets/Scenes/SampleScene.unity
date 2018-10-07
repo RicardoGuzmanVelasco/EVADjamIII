@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &323529816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1397698917723934, guid: 9c5bd5c904ad73849b8a05fdfe857435,
+    type: 2}
+  m_PrefabInternal: {fileID: 2006326506}
 --- !u!1 &404455652
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +523,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1009303715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1431059953835988, guid: 9c5bd5c904ad73849b8a05fdfe857435,
+    type: 2}
+  m_PrefabInternal: {fileID: 2006326506}
 --- !u!1 &1036712092
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +761,16 @@ Prefab:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 553468242}
+    - target: {fileID: 114458237842771462, guid: 776102cab1babe044ac084ab23d86c99,
+        type: 2}
+      propertyPath: winAnimation
+      value: 
+      objectReference: {fileID: 1009303715}
+    - target: {fileID: 114458237842771462, guid: 776102cab1babe044ac084ab23d86c99,
+        type: 2}
+      propertyPath: loseAnimation
+      value: 
+      objectReference: {fileID: 323529816}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 776102cab1babe044ac084ab23d86c99, type: 2}
   m_IsPrefabAsset: 0

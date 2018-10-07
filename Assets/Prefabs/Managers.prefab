@@ -163,6 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892bf40d969b4ed4f923ab5084291b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 120
+  maxTime: 10
   player: {fileID: 0}
   timerText: {fileID: 0}
+  winAnimation: {fileID: 0}
+  loseAnimation: {fileID: 0}
+  win: {fileID: 8300000, guid: 96d9325cb2710384c9dad93ab92de956, type: 3}
+  lose: {fileID: 8300000, guid: 46075cee304875a41b6e9f7efd39bfa2, type: 3}
