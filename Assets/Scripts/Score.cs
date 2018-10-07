@@ -51,29 +51,26 @@ public class Score : MonoBehaviour
 				break;
 			case 0:
 			case 1:
+			case 2:
 				for(int i = 0; i < audioLayers.Count; i++)
 					audioLayers[i].mute = (i == 0) ? false : true;
 				break;
-			case 2:
 			case 3:
+			case 4:
 				for(int i = 0; i < audioLayers.Count; i++)
 					audioLayers[i].mute = i < 2 ? false : true;
 				break;
-			case 4:
 			case 5:
+			case 6:
 				for(int i = 0; i < audioLayers.Count; i++)
 					audioLayers[i].mute = i < 3 ? false : true;
 				break;
-			case 6:
 			case 7:
-				for(int i = 0; i < audioLayers.Count; i++)
-					audioLayers[i].mute = i < 4 ? false : true;
-				break;
 			case 8:
 			case 9:
 			case 10:
 				for(int i = 0; i < audioLayers.Count; i++)
-					audioLayers[i].mute = i < 5 ? false : true;
+					audioLayers[i].mute = i < 4 ? false : true;
 				break;
 			default:
 				break;
