@@ -32,6 +32,6 @@ public class ScoreTimer : MonoBehaviour
 
 	private void ToEnd()
 	{
-		Debug.Log(player.score.Balancement);
+		Debug.Log(player.GetComponent<Score>().Balancement);
 	}
 }

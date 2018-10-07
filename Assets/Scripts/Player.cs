@@ -5,21 +5,28 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 	private Collider2D netCollider, bottleCollider;
-	public Animator animator; 
+	public Animator animator;
 
-	public Score score;
+	public AudioClip destroyTraumaClip;
+	public AudioClip huntTraumaClip;
+	public AudioClip destroyHopeClip;
+	public AudioClip huntHopeClip;
+	public AudioClip impactTraumaClip;
+	public AudioSource effectsSource;
+
+	private Score score;
 	public Slider hopeSlider, traumaSlider;
 
 	private void Awake()
 	{
-		score = new Score(hopeSlider, traumaSlider);
+		score = GetComponent<Score>();
 		animator = transform.Find("Char").GetComponent<Animator>();
 
 		netCollider = transform.Find("Char/Weapons/Net").GetComponent<Collider2D>();
 		bottleCollider = transform.Find("Char/Weapons/Bottle").GetComponent<Collider2D>();
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
 		if(Input.GetButtonDown("Net"))
 			Attack(PickableType.Hope);
@@ -50,6 +57,7 @@ public class Player : MonoBehaviour
 				//No change in score. Hope oversteps you.
 				break;
 			case PickableType.Trauma:
+				effectsSource.PlayOneShot(impactTraumaClip);
 				animator.SetTrigger("Damaged");
 				score.Increase(-1);
 				break;
@@ -79,18 +87,21 @@ public class Player : MonoBehaviour
 
 	private void DestroyHope()
 	{
+		
 		animator.SetTrigger("Damaged");
 		score.Increase(-1);
 	}
 
 	private void DestroyTrauma()
 	{
+		effectsSource.PlayOneShot(destroyTraumaClip);
 		animator.SetTrigger("Healed");
 		score.Increase(+1);
 	}
 
 	private void HuntHope()
 	{
+		effectsSource.PlayOneShot(huntHopeClip);
 		animator.SetTrigger("Healed");
 		score.Increase(+1);
 	}

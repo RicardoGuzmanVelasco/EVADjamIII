@@ -6,6 +6,7 @@ public class FauxRotator : MonoBehaviour
 	public GameObject character;
 	private Animator characterAnimator;
 	public float speed = 10f;
+	public AudioSource footSteps;
 
 	private int lastMovementInput = 0;
 
@@ -14,24 +15,44 @@ public class FauxRotator : MonoBehaviour
 		characterAnimator = character.GetComponentInChildren<Animator>();
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
-		int currentInput = Input.GetAxis("Movement") > 0 ? 1 : Input.GetAxis("Movement") < 0 ? -1 : 0;
+
+		int currentInput = Input.GetAxis("Horizontal") > 0 ? 1 : Input.GetAxis("Horizontal") < 0 ? -1 : 0;
 
 		planetFloor.RotateAround(Vector3.zero, Vector3.forward, Time.deltaTime * speed * currentInput);
+
+		if(Input.GetButtonDown("Horizontal"))
+			characterAnimator.SetBool("Front", currentInput <= 0);
+		if(Input.GetButtonUp("Horizontal"))
+			characterAnimator.SetBool("Front", currentInput <= 0);
 
 
 		if(currentInput == lastMovementInput)
 			return;
-		
+
 		if(currentInput < 0)
+		{
 			characterAnimator.SetTrigger("ToFront");
+			characterAnimator.SetBool("Stopped", false);
+		}
 		else if(currentInput > 0)
+		{
 			characterAnimator.SetTrigger("ToBack");
-		else if(!Input.GetButtonDown("Movement"))
+			characterAnimator.SetBool("Stopped", false);
+		}
+		else if(!Input.GetButtonDown("Horizontal"))
+		{
 			characterAnimator.SetTrigger("Stop");
+			characterAnimator.SetBool("Stopped", true);
+		}
 
 		lastMovementInput = currentInput;
+
+		if(!characterAnimator.GetBool("Stopped"))
+			footSteps.Play();
+		else
+			footSteps.Stop();
 	}
 
 }

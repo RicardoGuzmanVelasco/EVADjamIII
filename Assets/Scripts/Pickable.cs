@@ -6,6 +6,7 @@ public class Pickable : MonoBehaviour
 	public float speed = 3;
 	public PickableType type;
 	public bool antigenerated = false;
+	private bool ranAway = false;
 
 	private void Start()
 	{
@@ -24,8 +25,9 @@ public class Pickable : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if(type == PickableType.Hope && collision.tag == "Respawn")
+		if(!ranAway && type == PickableType.Hope && collision.tag == "Respawn")
 		{
+			ranAway = true;
 			speed *= -3;
 			return;
 		}
